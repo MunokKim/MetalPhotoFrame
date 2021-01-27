@@ -15,6 +15,10 @@
 		E659B88325C1187E0046630F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E659B88125C1187E0046630F /* LaunchScreen.storyboard */; };
 		E659B88E25C1187E0046630F /* MetalPhotoFrameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659B88D25C1187E0046630F /* MetalPhotoFrameTests.swift */; };
 		E659B89925C1187E0046630F /* MetalPhotoFrameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659B89825C1187E0046630F /* MetalPhotoFrameUITests.swift */; };
+		E659B8AA25C11C110046630F /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659B8A925C11C110046630F /* MetalView.swift */; };
+		E659B8AE25C11C1D0046630F /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659B8A925C11C110046630F /* MetalView.swift */; };
+		E659B8B325C123E20046630F /* apple.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E659B8B225C123E20046630F /* apple.jpeg */; };
+		E659B8B425C123E20046630F /* apple.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E659B8B225C123E20046630F /* apple.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,8 @@
 		E659B89425C1187E0046630F /* MetalPhotoFrameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalPhotoFrameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E659B89825C1187E0046630F /* MetalPhotoFrameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalPhotoFrameUITests.swift; sourceTree = "<group>"; };
 		E659B89A25C1187E0046630F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E659B8A925C11C110046630F /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		E659B8B225C123E20046630F /* apple.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apple.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		E659B87525C1187D0046630F /* MetalPhotoFrame */ = {
 			isa = PBXGroup;
 			children = (
+				E659B8B225C123E20046630F /* apple.jpeg */,
 				E659B87625C1187D0046630F /* AppDelegate.swift */,
 				E659B87825C1187D0046630F /* SceneDelegate.swift */,
 				E659B87A25C1187D0046630F /* ViewController.swift */,
@@ -106,6 +113,7 @@
 				E659B87F25C1187E0046630F /* Assets.xcassets */,
 				E659B88125C1187E0046630F /* LaunchScreen.storyboard */,
 				E659B88425C1187E0046630F /* Info.plist */,
+				E659B8A925C11C110046630F /* MetalView.swift */,
 			);
 			path = MetalPhotoFrame;
 			sourceTree = "<group>";
@@ -231,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E659B8B325C123E20046630F /* apple.jpeg in Resources */,
 				E659B88325C1187E0046630F /* LaunchScreen.storyboard in Resources */,
 				E659B88025C1187E0046630F /* Assets.xcassets in Resources */,
 				E659B87E25C1187D0046630F /* Main.storyboard in Resources */,
@@ -241,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E659B8B425C123E20046630F /* apple.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E659B8AA25C11C110046630F /* MetalView.swift in Sources */,
 				E659B87B25C1187D0046630F /* ViewController.swift in Sources */,
 				E659B87725C1187D0046630F /* AppDelegate.swift in Sources */,
 				E659B87925C1187D0046630F /* SceneDelegate.swift in Sources */,
@@ -268,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E659B8AE25C11C1D0046630F /* MetalView.swift in Sources */,
 				E659B88E25C1187E0046630F /* MetalPhotoFrameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
