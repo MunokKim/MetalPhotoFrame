@@ -19,6 +19,10 @@
 		E659B8AE25C11C1D0046630F /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659B8A925C11C110046630F /* MetalView.swift */; };
 		E659B8B325C123E20046630F /* apple.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E659B8B225C123E20046630F /* apple.jpeg */; };
 		E659B8B425C123E20046630F /* apple.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E659B8B225C123E20046630F /* apple.jpeg */; };
+		E659B8C825C12C260046630F /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659B8C725C12C260046630F /* Renderer.swift */; };
+		E659B8C925C12C260046630F /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659B8C725C12C260046630F /* Renderer.swift */; };
+		E659B8CE25C13F150046630F /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = E659B8CD25C13F150046630F /* Shaders.metal */; };
+		E659B8CF25C13F150046630F /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = E659B8CD25C13F150046630F /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,8 @@
 		E659B89A25C1187E0046630F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E659B8A925C11C110046630F /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
 		E659B8B225C123E20046630F /* apple.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apple.jpeg; sourceTree = "<group>"; };
+		E659B8C725C12C260046630F /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		E659B8CD25C13F150046630F /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,11 +115,13 @@
 				E659B87625C1187D0046630F /* AppDelegate.swift */,
 				E659B87825C1187D0046630F /* SceneDelegate.swift */,
 				E659B87A25C1187D0046630F /* ViewController.swift */,
+				E659B8A925C11C110046630F /* MetalView.swift */,
+				E659B8C725C12C260046630F /* Renderer.swift */,
+				E659B8CD25C13F150046630F /* Shaders.metal */,
 				E659B87C25C1187D0046630F /* Main.storyboard */,
 				E659B87F25C1187E0046630F /* Assets.xcassets */,
 				E659B88125C1187E0046630F /* LaunchScreen.storyboard */,
 				E659B88425C1187E0046630F /* Info.plist */,
-				E659B8A925C11C110046630F /* MetalView.swift */,
 			);
 			path = MetalPhotoFrame;
 			sourceTree = "<group>";
@@ -268,9 +276,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E659B8CE25C13F150046630F /* Shaders.metal in Sources */,
 				E659B8AA25C11C110046630F /* MetalView.swift in Sources */,
 				E659B87B25C1187D0046630F /* ViewController.swift in Sources */,
 				E659B87725C1187D0046630F /* AppDelegate.swift in Sources */,
+				E659B8C825C12C260046630F /* Renderer.swift in Sources */,
 				E659B87925C1187D0046630F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,7 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E659B8CF25C13F150046630F /* Shaders.metal in Sources */,
 				E659B8AE25C11C1D0046630F /* MetalView.swift in Sources */,
+				E659B8C925C12C260046630F /* Renderer.swift in Sources */,
 				E659B88E25C1187E0046630F /* MetalPhotoFrameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

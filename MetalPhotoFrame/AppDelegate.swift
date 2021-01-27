@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MetalPhotoFrame
 //
-//  Created by eazel5 (Munok) on 2021/01/27.
+//  Created by Munok Kim on 2021/01/27.
 //
 
 import UIKit

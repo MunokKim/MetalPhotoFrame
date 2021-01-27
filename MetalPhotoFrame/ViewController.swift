@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  MetalPhotoFrame
 //
-//  Created by eazel5 (Munok) on 2021/01/27.
+//  Created by Munok Kim on 2021/01/27.
 //
 
 import MetalKit
@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         imageView.backgroundColor = .blue
         imageView.image = UIImage(named: "apple.jpeg")
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         
         return imageView
     }()
