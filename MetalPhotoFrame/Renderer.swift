@@ -111,8 +111,15 @@ extension Renderer: MTKViewDelegate {
         commandEncoder?.setRenderPipelineState(renderPipelineState)
         // Pass in the vertexBuffer into index 0
         commandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        commandEncoder?.setFragmentTexture(<#T##texture: MTLTexture?##MTLTexture?#>, index: <#T##Int#>
-        commandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: numberOfVertices)
+        let memorySize = MemoryLayout.size(ofValue: viewportSize)
+        commandEncoder?.setVertexBytes(&viewportSize,
+                                       length: memorySize,
+                                       index: VertexInputIndex.viewportSize.rawValue)
+        commandEncoder?.setFragmentTexture(texture,
+                                           index: TextureIndex.baseColor.rawValue)
+        commandEncoder?.drawPrimitives(type: .triangle,
+                                       vertexStart: 0,
+                                       vertexCount: numberOfVertices)
         commandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
         commandBuffer?.commit()
