@@ -23,6 +23,10 @@
 		E659B8C925C12C260046630F /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659B8C725C12C260046630F /* Renderer.swift */; };
 		E659B8CE25C13F150046630F /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = E659B8CD25C13F150046630F /* Shaders.metal */; };
 		E659B8CF25C13F150046630F /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = E659B8CD25C13F150046630F /* Shaders.metal */; };
+		E65D5E2025C3F062009CA051 /* wood.tga in Resources */ = {isa = PBXBuildFile; fileRef = E65D5E1F25C3F062009CA051 /* wood.tga */; };
+		E65D5E2125C3F062009CA051 /* wood.tga in Resources */ = {isa = PBXBuildFile; fileRef = E65D5E1F25C3F062009CA051 /* wood.tga */; };
+		E65D5E2C25C41310009CA051 /* ShaderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5E2B25C41310009CA051 /* ShaderTypes.swift */; };
+		E65D5E2D25C41310009CA051 /* ShaderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5E2B25C41310009CA051 /* ShaderTypes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,8 @@
 		E659B8B225C123E20046630F /* apple.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apple.jpeg; sourceTree = "<group>"; };
 		E659B8C725C12C260046630F /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		E659B8CD25C13F150046630F /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		E65D5E1F25C3F062009CA051 /* wood.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = wood.tga; sourceTree = "<group>"; };
+		E65D5E2B25C41310009CA051 /* ShaderTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderTypes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +118,13 @@
 			isa = PBXGroup;
 			children = (
 				E659B8B225C123E20046630F /* apple.jpeg */,
+				E65D5E1F25C3F062009CA051 /* wood.tga */,
 				E659B87625C1187D0046630F /* AppDelegate.swift */,
 				E659B87825C1187D0046630F /* SceneDelegate.swift */,
 				E659B87A25C1187D0046630F /* ViewController.swift */,
 				E659B8A925C11C110046630F /* MetalView.swift */,
 				E659B8C725C12C260046630F /* Renderer.swift */,
+				E65D5E2B25C41310009CA051 /* ShaderTypes.swift */,
 				E659B8CD25C13F150046630F /* Shaders.metal */,
 				E659B87C25C1187D0046630F /* Main.storyboard */,
 				E659B87F25C1187E0046630F /* Assets.xcassets */,
@@ -214,6 +222,7 @@
 					};
 					E659B88825C1187E0046630F = {
 						CreatedOnToolsVersion = 12.3;
+						LastSwiftMigration = 1230;
 						TestTargetID = E659B87225C1187D0046630F;
 					};
 					E659B89325C1187E0046630F = {
@@ -250,6 +259,7 @@
 				E659B8B325C123E20046630F /* apple.jpeg in Resources */,
 				E659B88325C1187E0046630F /* LaunchScreen.storyboard in Resources */,
 				E659B88025C1187E0046630F /* Assets.xcassets in Resources */,
+				E65D5E2025C3F062009CA051 /* wood.tga in Resources */,
 				E659B87E25C1187D0046630F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E659B8B425C123E20046630F /* apple.jpeg in Resources */,
+				E65D5E2125C3F062009CA051 /* wood.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +292,7 @@
 				E659B87B25C1187D0046630F /* ViewController.swift in Sources */,
 				E659B87725C1187D0046630F /* AppDelegate.swift in Sources */,
 				E659B8C825C12C260046630F /* Renderer.swift in Sources */,
+				E65D5E2C25C41310009CA051 /* ShaderTypes.swift in Sources */,
 				E659B87925C1187D0046630F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E659B8CF25C13F150046630F /* Shaders.metal in Sources */,
+				E65D5E2D25C41310009CA051 /* ShaderTypes.swift in Sources */,
 				E659B8AE25C11C1D0046630F /* MetalView.swift in Sources */,
 				E659B8C925C12C260046630F /* Renderer.swift in Sources */,
 				E659B88E25C1187E0046630F /* MetalPhotoFrameTests.swift in Sources */,
@@ -469,6 +482,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.MunokKim.MetalPhotoFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -488,6 +502,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.MunokKim.MetalPhotoFrame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -498,6 +513,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2N9WY9T58;
 				INFOPLIST_FILE = MetalPhotoFrameTests/Info.plist;
@@ -509,6 +525,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.MunokKim.MetalPhotoFrameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalPhotoFrame/MetalPhotoFrameTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetalPhotoFrame.app/MetalPhotoFrame";
@@ -520,6 +538,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2N9WY9T58;
 				INFOPLIST_FILE = MetalPhotoFrameTests/Info.plist;
@@ -531,6 +550,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.MunokKim.MetalPhotoFrameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MetalPhotoFrame/MetalPhotoFrameTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MetalPhotoFrame.app/MetalPhotoFrame";

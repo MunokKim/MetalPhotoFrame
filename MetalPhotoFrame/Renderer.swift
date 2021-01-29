@@ -7,42 +7,51 @@
 
 import MetalKit
 
-struct Vertex {
-    var position: vector_float3
-    var color: vector_float4
-}
-
 class Renderer: NSObject {
+    
+    // MARK: - Declarations
     
     var commandQueue: MTLCommandQueue!
     var renderPipelineState: MTLRenderPipelineState!
-    
+    var texture: MTLTexture!
     var vertexBuffer: MTLBuffer!
-    var vertices: [Vertex] = [
-        Vertex(position: vector_float3(0,1,0), color: vector_float4(1,0,0,1)),
-        Vertex(position: vector_float3(-1,-1,0), color: vector_float4(0,1,0,1)),
-        Vertex(position: vector_float3(1,-1,0), color: vector_float4(0,0,1,1))
+    var numberOfVertices: Int = 0
+    var viewportSize: vector_uint2!
+    
+    var quadVertices: [Vertex] = [
+        Vertex(position: vector_float2( 250, -250), textureCoordinate: vector_float2(1, 1)),
+        Vertex(position: vector_float2(-250, -250), textureCoordinate: vector_float2(0, 1)),
+        Vertex(position: vector_float2(-250,  250), textureCoordinate: vector_float2(0, 0)),
+        
+        Vertex(position: vector_float2( 250, -250), textureCoordinate: vector_float2(1, 1)),
+        Vertex(position: vector_float2(-250,  250), textureCoordinate: vector_float2(0, 0)),
+        Vertex(position: vector_float2( 250,  250), textureCoordinate: vector_float2(1, 0))
     ]
+    
+    // MARK: - Initiatialization
     
     init(device: MTLDevice) {
         super.init()
+        
         createCommandQueue(device: device)
         createPipelineState(device: device)
         createBuffers(device: device)
+        createTexture(device: device)
     }
     
-    //MARK: Builders
-    func createCommandQueue(device: MTLDevice) {
+    //MARK: - Builders
+    
+    private func createCommandQueue(device: MTLDevice) {
         commandQueue = device.makeCommandQueue()
     }
     
-    func createPipelineState(device: MTLDevice) {
+    private func createPipelineState(device: MTLDevice) {
         // The device will make a library for us
         let library = device.makeDefaultLibrary()
         // Our vertex function name
-        let vertexFunction = library?.makeFunction(name: "vertex_function")
+        let vertexFunction = library?.makeFunction(name: "vertexShader")
         // Our fragment function name
-        let fragmentFunction = library?.makeFunction(name: "fragment_function")
+        let fragmentFunction = library?.makeFunction(name: "samplingShader")
         // Create basic descriptor
         let renderPipelineDescriptor = MTLRenderPipelineDescriptor()
         // Attach the pixel format that si the same as the MetalView
@@ -58,16 +67,36 @@ class Renderer: NSObject {
         }
     }
     
-    func createBuffers(device: MTLDevice) {
-        vertexBuffer = device.makeBuffer(bytes: vertices,
-                                         length: MemoryLayout<Vertex>.stride * vertices.count,
+    private func createBuffers(device: MTLDevice) {
+        vertexBuffer = device.makeBuffer(bytes: quadVertices,
+                                         length: MemoryLayout<Vertex>.stride * quadVertices.count,
                                          options: [])
     }
+    
+    private func createTexture(device: MTLDevice) {
+        let textureLoader = MTKTextureLoader(device: device)
+        
+        guard
+            let imageUrl: URL = Bundle.main.url(forResource: "wood", withExtension: "tga"),
+            let texture = try? textureLoader.newTexture(URL: imageUrl, options: nil)
+        else {
+            print("Failed to create new texture.")
+            return
+        }
+        
+        self.texture = texture
+    }
 }
+
+// MARK: - MTKViewDelegate
 
 extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         print("Drawable size will change 👉🏼 ", size)
+        
+        // Save the size of the drawable to pass to the vertex shader.
+        viewportSize.x = UInt32(size.width)
+        viewportSize.y = UInt32(size.height)
     }
     
     func draw(in view: MTKView) {
@@ -82,9 +111,8 @@ extension Renderer: MTKViewDelegate {
         commandEncoder?.setRenderPipelineState(renderPipelineState)
         // Pass in the vertexBuffer into index 0
         commandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        // Draw primitive at vertextStart 0
-        commandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: vertices.count)
-        
+        commandEncoder?.setFragmentTexture(<#T##texture: MTLTexture?##MTLTexture?#>, index: <#T##Int#>
+        commandEncoder?.drawPrimitives(type: .triangle, vertexStart: 0, vertexCount: numberOfVertices)
         commandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
         commandBuffer?.commit()
