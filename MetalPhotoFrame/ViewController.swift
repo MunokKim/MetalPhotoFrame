@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         
         photoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         photoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        photoImageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        photoImageView.widthAnchor.constraint(equalToConstant: 400).isActive = true
+//        photoImageView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+//        photoImageView.widthAnchor.constraint(equalToConstant: 400).isActive = true
     }
 }

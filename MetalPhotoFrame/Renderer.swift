@@ -15,17 +15,15 @@ class Renderer: NSObject {
     var renderPipelineState: MTLRenderPipelineState!
     var texture: MTLTexture!
     var vertexBuffer: MTLBuffer!
-    var numberOfVertices: Int = 0
-    var viewportSize: vector_uint2!
-    
+    var viewportSize: vector_uint2 = vector_uint2()
     var quadVertices: [Vertex] = [
-        Vertex(position: vector_float2( 250, -250), textureCoordinate: vector_float2(1, 1)),
-        Vertex(position: vector_float2(-250, -250), textureCoordinate: vector_float2(0, 1)),
-        Vertex(position: vector_float2(-250,  250), textureCoordinate: vector_float2(0, 0)),
+        Vertex(position: vector_float2( 500, -500), textureCoordinate: vector_float2(1, 1)),
+        Vertex(position: vector_float2(-500, -500), textureCoordinate: vector_float2(0, 1)),
+        Vertex(position: vector_float2(-500,  500), textureCoordinate: vector_float2(0, 0)),
         
-        Vertex(position: vector_float2( 250, -250), textureCoordinate: vector_float2(1, 1)),
-        Vertex(position: vector_float2(-250,  250), textureCoordinate: vector_float2(0, 0)),
-        Vertex(position: vector_float2( 250,  250), textureCoordinate: vector_float2(1, 0))
+        Vertex(position: vector_float2( 500, -500), textureCoordinate: vector_float2(1, 1)),
+        Vertex(position: vector_float2(-500,  500), textureCoordinate: vector_float2(0, 0)),
+        Vertex(position: vector_float2( 500,  500), textureCoordinate: vector_float2(1, 0))
     ]
     
     // MARK: - Initiatialization
@@ -70,14 +68,14 @@ class Renderer: NSObject {
     private func createBuffers(device: MTLDevice) {
         vertexBuffer = device.makeBuffer(bytes: quadVertices,
                                          length: MemoryLayout<Vertex>.stride * quadVertices.count,
-                                         options: [])
+                                         options: [.storageModeShared])
     }
     
     private func createTexture(device: MTLDevice) {
         let textureLoader = MTKTextureLoader(device: device)
         
         guard
-            let imageUrl: URL = Bundle.main.url(forResource: "wood", withExtension: "tga"),
+            let imageUrl: URL = Bundle.main.url(forResource: "wood", withExtension: "jpg"),
             let texture = try? textureLoader.newTexture(URL: imageUrl, options: nil)
         else {
             print("Failed to create new texture.")
@@ -101,25 +99,36 @@ extension Renderer: MTKViewDelegate {
     
     func draw(in view: MTKView) {
         // Get the current drawable and descriptor
-        guard let drawable = view.currentDrawable,
-            let renderPassDescriptor = view.currentRenderPassDescriptor else {
-                return
+        guard
+            let drawable = view.currentDrawable,
+            let renderPassDescriptor = view.currentRenderPassDescriptor
+        else {
+            print("Failed to create render pass descriptor.")
+            return
         }
+        
         // Create a buffer from the commandQueue
         let commandBuffer = commandQueue.makeCommandBuffer()
         let commandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: renderPassDescriptor)
+        commandEncoder?.setViewport(MTLViewport(originX: 0,
+                                                originY: 0,
+                                                width: Double(viewportSize.x),
+                                                height: Double(viewportSize.y),
+                                                znear: -1.0,
+                                                zfar: 1.0))
         commandEncoder?.setRenderPipelineState(renderPipelineState)
         // Pass in the vertexBuffer into index 0
-        commandEncoder?.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        let memorySize = MemoryLayout.size(ofValue: viewportSize)
+        commandEncoder?.setVertexBuffer(vertexBuffer,
+                                        offset: 0,
+                                        index: 0)
         commandEncoder?.setVertexBytes(&viewportSize,
-                                       length: memorySize,
+                                       length: MemoryLayout.size(ofValue: viewportSize),
                                        index: VertexInputIndex.viewportSize.rawValue)
         commandEncoder?.setFragmentTexture(texture,
                                            index: TextureIndex.baseColor.rawValue)
         commandEncoder?.drawPrimitives(type: .triangle,
                                        vertexStart: 0,
-                                       vertexCount: numberOfVertices)
+                                       vertexCount: quadVertices.count)
         commandEncoder?.endEncoding()
         commandBuffer?.present(drawable)
         commandBuffer?.commit()

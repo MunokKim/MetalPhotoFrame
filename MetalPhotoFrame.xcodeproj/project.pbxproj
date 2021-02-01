@@ -23,10 +23,10 @@
 		E659B8C925C12C260046630F /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E659B8C725C12C260046630F /* Renderer.swift */; };
 		E659B8CE25C13F150046630F /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = E659B8CD25C13F150046630F /* Shaders.metal */; };
 		E659B8CF25C13F150046630F /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = E659B8CD25C13F150046630F /* Shaders.metal */; };
-		E65D5E2025C3F062009CA051 /* wood.tga in Resources */ = {isa = PBXBuildFile; fileRef = E65D5E1F25C3F062009CA051 /* wood.tga */; };
-		E65D5E2125C3F062009CA051 /* wood.tga in Resources */ = {isa = PBXBuildFile; fileRef = E65D5E1F25C3F062009CA051 /* wood.tga */; };
 		E65D5E2C25C41310009CA051 /* ShaderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5E2B25C41310009CA051 /* ShaderTypes.swift */; };
 		E65D5E2D25C41310009CA051 /* ShaderTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65D5E2B25C41310009CA051 /* ShaderTypes.swift */; };
+		E6638CAB25C798CE00027B6F /* wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6638CAA25C798CE00027B6F /* wood.jpg */; };
+		E6638CAC25C798CE00027B6F /* wood.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E6638CAA25C798CE00027B6F /* wood.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +65,8 @@
 		E659B8B225C123E20046630F /* apple.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = apple.jpeg; sourceTree = "<group>"; };
 		E659B8C725C12C260046630F /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		E659B8CD25C13F150046630F /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
-		E65D5E1F25C3F062009CA051 /* wood.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = wood.tga; sourceTree = "<group>"; };
 		E65D5E2B25C41310009CA051 /* ShaderTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderTypes.swift; sourceTree = "<group>"; };
+		E6638CAA25C798CE00027B6F /* wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				E659B8B225C123E20046630F /* apple.jpeg */,
-				E65D5E1F25C3F062009CA051 /* wood.tga */,
+				E6638CAA25C798CE00027B6F /* wood.jpg */,
 				E659B87625C1187D0046630F /* AppDelegate.swift */,
 				E659B87825C1187D0046630F /* SceneDelegate.swift */,
 				E659B87A25C1187D0046630F /* ViewController.swift */,
@@ -257,9 +257,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E659B8B325C123E20046630F /* apple.jpeg in Resources */,
+				E6638CAB25C798CE00027B6F /* wood.jpg in Resources */,
 				E659B88325C1187E0046630F /* LaunchScreen.storyboard in Resources */,
 				E659B88025C1187E0046630F /* Assets.xcassets in Resources */,
-				E65D5E2025C3F062009CA051 /* wood.tga in Resources */,
 				E659B87E25C1187D0046630F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,8 +268,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6638CAC25C798CE00027B6F /* wood.jpg in Resources */,
 				E659B8B425C123E20046630F /* apple.jpeg in Resources */,
-				E65D5E2125C3F062009CA051 /* wood.tga in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
